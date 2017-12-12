@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy to CI') {
             agent { label 'deployer01' }
             steps {
-                sh 'deployong to staging'
+                echo 'deploying to staging'
             }
         }
 
