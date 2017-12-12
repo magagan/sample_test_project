@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy to CI') {
             agent { label 'deployer01' }
             steps {
-                sh '/home/magagan/deploymentScripts/deployStagingOnewebDistributed.sh $GIT_COMMIT'
+                sh 'deployong to staging'
             }
         }
 
@@ -60,6 +60,7 @@ pipeline {
                 input message:'Approve PRODUCTION Deployment?'
 
                 echo 'sleeping 20s'
+                echo 'deploying to production'
                 sh 'sleep 20s'
                 echo 'done sleeping'
             }
