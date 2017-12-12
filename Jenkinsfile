@@ -1,28 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('init') {
+        stage('Initialized') {
             steps {
-                echo "Testing..."
+                echo "Initializing"
             }
         }
 
-        stage('Build') {
+        stage('Deploy to CI') {
             steps {
-                echo "Building..."
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Code deployed."
+                build job: 'oneweb-staging-deploy'
             }
         }
 
         stage('Testing') {
             agent { label 'reg-server01' }
             steps {
-                echo "Reg Server01"
+                build job: 'S-RS-01-HomePage-Listings-Details'
             }
         }
 
