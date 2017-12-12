@@ -14,15 +14,20 @@ pipeline {
             }
         }
 
-        stage('Testing') {
-            steps {
-                build job: 'S-RS-04-AdSenseListing-AdsenseDetails-AudienceSegments-AdUnits'
-            }
+        stage('Parallel Testing') {
+            parallel {
+                stage ('S-RS-04-AdSenseListing-AdsenseDetails-AudienceSegments-AdUnits') {
+                    steps {
+                        build job: 'S-RS-04-AdSenseListing-AdsenseDetails-AudienceSegments-AdUnits'
+                    }
+                }
 
-            steps {
-                build job: 'S-RS-05-SellForm'
+                stage ('S-RS-05-SellForm') {
+                    steps {
+                        build job: 'S-RS-05-SellForm'
+                    }
+                }
             }
         }
-
     }
 }
