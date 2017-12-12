@@ -18,8 +18,9 @@ pipeline {
                 echo "Code deployed."
             }
         }
-        agent reg-server01
+
         stage('Testing') {
+            agent reg-server01
             steps {
                 echo "Reg Server01"
             }
