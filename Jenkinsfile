@@ -20,7 +20,7 @@ pipeline {
         }
 
         stage('Testing') {
-            agent reg-server01
+            agent { label 'reg-server01' }
             steps {
                 echo "Reg Server01"
             }
